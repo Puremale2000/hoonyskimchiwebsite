@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fresh Cucumber Kimchi (Oi Sobagi) - Crisp, refreshing, and perfect for summer.">
+    <meta property="og:title" content="Cucumber Kimchi - Hoony's Kimchi">
+    <meta property="og:description" content="Refreshing Cucumber Kimchi - Perfect for summer and grilling.">
+    <meta property="og:image" content="img/cucumber-kimchi.jpg">
+    <meta property="og:type" content="product">
+    
+    <title>Cucumber Kimchi - Hoony's Kimchi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpg" href="img/cucumber-kimchi.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="product-detail-page">
+
+    <header class="simple-header">
+        <div class="container header-container">
+            <a href="index.html" class="back-link">&larr; Back to Main Menu</a>
+            <div class="theme-switcher">
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="product-layout">
+            <div class="product-image">
+                <img src="img/cucumber-kimchi.jpg" alt="Refreshing Cucumber Kimchi">
+            </div>
+            <div class="product-info">
+                <h1>Cucumber Kimchi / 오이김치</h1>
+
+                <div class="info-section">
+                    <h2>Pricing</h2>
+                    <ul class="pricing-detail">
+                        <li><span><strong>350g</strong> (Small)</span> <strong>$15</strong></li>
+                        <li><span><strong>700g</strong> (Big)</span> <strong>$30</strong></li>
+                        <li><span><strong>1050g</strong> (Combo)</span> <strong>$40</strong></li>
+                    </ul>
+                </div>
+
+                <div class="info-section">
+                    <h2>Our Fresh Ingredients</h2>
+                    <div class="ingredients-grid">
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/cucumber.jpg" alt="Cucumber">
+                            <span>Cucumber<br>오이</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/onion.png" alt="Onion">
+                            <span>Onion<br>양파</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/chives.jpg" alt="Chives">
+                            <span>Chives<br>부추</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/red-chili.png" alt="Red Chili">
+                            <span>Red Chili<br>고춧가루</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/plum-syrup.jpg" alt="Plum Syrup">
+                            <span>Plum Syrup<br>매실청</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/anchovy.png" alt="Anchovy Sauce">
+                            <span>Anchovy<br>멸치액젓</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/sugar.png" alt="Sugar">
+                            <span>Sugar<br>설탕</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/garlic.png" alt="Garlic">
+                            <span>Garlic<br>마늘</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/ginger.jpg" alt="Ginger">
+                            <span>Ginger<br>생강</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2>Serving Suggestions</h2>
+                    <p>A wonderfully refreshing and crisp side dish, perfect for warmer months or to cut through the richness of grilled meats.</p>
+                </div>
+                
+                <div class="info-section">
+                    <h2>Storage Instructions</h2>
+                    <p>Best enjoyed fresh! Keep refrigerated and consume within 2 weeks for the best texture and flavor.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Hoony's Kimchi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+             // Theme Toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            
+            // Check for saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+                updateThemeIcon();
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark-mode');
+                } else {
+                    localStorage.removeItem('theme');
+                }
+                updateThemeIcon();
+            });
+            
+            function updateThemeIcon() {
+                 if (body.classList.contains('dark-mode')) {
+                    themeToggle.textContent = '☀️';
+                 } else {
+                    themeToggle.textContent = '🌙';
+                 }
+            }
+        });
+    </script>
+
+</body>
+</html>
