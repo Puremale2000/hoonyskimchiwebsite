@@ -66,10 +66,11 @@ header {
 }
 
 .logo-text {
-    font-family: 'Lobster', cursive;
+    font-family: 'Abril Fatface', serif;
     font-size: 1.5rem;
     color: #fff; /* Default to white for Hero overlay */
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    letter-spacing: 1px;
 }
 
 /* Theme Toggler */
@@ -173,12 +174,14 @@ nav a:hover {
 }
 
 .hero-text h1 {
-    font-family: 'Lobster', cursive;
-    font-size: 6rem; /* Slightly larger for impact */
+    font-family: 'Abril Fatface', serif; /* Thick, classic serif font */
+    font-size: 6rem; 
     margin: 0;
-    font-weight: normal;
-    text-shadow: 2px 2px 15px rgba(0,0,0,0.9); /* Stronger shadow for readability */
+    font-weight: 400; /* Abril Fatface is naturally very bold */
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.9); 
     line-height: 1.1;
+    letter-spacing: 2px; /* Add some spacing for elegance */
+    text-transform: uppercase; /* Make it look like a brand label */
 }
 
 .hero-text p {
@@ -200,9 +203,13 @@ section:nth-of-type(even) {
 }
 
 section h2 {
-    font-size: 2.5em;
+    font-family: 'Bebas Neue', sans-serif; /* Clean, bold, tall font */
+    font-size: 3.5rem; /* Big and impactful */
     color: var(--primary-color);
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    font-weight: 400; /* Bebas Neue is bold by default */
+    letter-spacing: 1px; /* Add some breathing room */
+    text-transform: uppercase; /* Make it look like a poster */
 }
 
 
@@ -704,6 +711,14 @@ footer {
 .pickup-table td {
     padding: 15px 20px;
     border-bottom: 1px solid var(--shadow-color);
+    text-align: left; /* Ensure text aligns to the left for readability */
+}
+
+/* Give the first column (Day) a specific width to keep things aligned */
+.pickup-table th:first-child,
+.pickup-table td:first-child {
+    width: 40%;
+    min-width: 150px;
 }
 
 .pickup-table tbody tr {
@@ -861,4 +876,84 @@ footer {
     background-color: var(--primary-color);
     color: #fff;
     transform: translateY(-2px);
+}
+
+/* --- Secret Scroll Down Arrow --- */
+.scroll-down-arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    animation: float 2s infinite ease-in-out;
+    cursor: pointer;
+    opacity: 0.6; /* Secret/Subtle */
+}
+
+.scroll-down-arrow span {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+@keyframes float {
+    0% { transform: translate(-50%, 0px); opacity: 0.6; }
+    50% { transform: translate(-50%, 15px); opacity: 0.3; }
+    100% { transform: translate(-50%, 0px); opacity: 0.6; }
+}
+
+/* --- Pairings Section --- */
+#pairings {
+    background-color: var(--bg-color); /* Keep it light/neutral */
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: -20px;
+    margin-bottom: 40px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.pairing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    text-align: center;
+}
+
+.pairing-card {
+    background: var(--section-bg-color);
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease; /* Bouncy animation */
+    border: 1px solid transparent;
+}
+
+.pairing-card:hover {
+    transform: translateY(-10px) scale(1.02); /* Pop up effect */
+    box-shadow: 0 10px 20px var(--shadow-color);
+    border-color: var(--primary-color);
+}
+
+.pairing-icon {
+    font-size: 4em;
+    margin-bottom: 15px;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+}
+
+.pairing-card h3 {
+    font-family: 'Poppins', sans-serif; /* Clean font for card titles */
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.pairing-card p {
+    font-size: 0.95em;
+    color: var(--text-color);
+    line-height: 1.5;
 }
