@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Authentic Green Mustard Kimchi (Gat Kimchi) - Pungent, spicy, and full of traditional flavor.">
+    <meta property="og:title" content="Green Mustard Kimchi - Hoony's Kimchi">
+    <meta property="og:description" content="Traditional Gat Kimchi - Deeply flavorful with a unique, robust mustard bite.">
+    <meta property="og:image" content="img/green-mustard-kimchi.jpg">
+    <meta property="og:type" content="product">
+    
+    <title>Green Mustard Kimchi - Hoony's Kimchi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpg" href="img/cabbage-kimchi.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="product-detail-page">
+
+    <header class="simple-header">
+        <div class="container header-container">
+            <a href="index.html" class="back-link">&larr; Back to Main Menu</a>
+            <div class="theme-switcher">
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="product-layout">
+            <div class="product-image">
+                <img src="img/green-mustard-kimchi.jpg" alt="Traditional Green Mustard Kimchi">
+            </div>
+            <div class="product-info">
+                <h1>Green Mustard Kimchi / 갓김치</h1>
+
+                <div class="info-section">
+                    <h2>Pricing</h2>
+                    <ul class="pricing-detail">
+                        <li><span><strong>500g</strong> (Small)</span> <strong>$10</strong></li>
+                        <li><span><strong>1000g</strong> (Big)</span> <strong>$20</strong></li>
+                        <li><span><strong>2000g</strong> (2 Big)</span> <strong>$35</strong></li>
+                    </ul>
+                </div>
+
+                <div class="info-section">
+                    <h2>Our Fresh Ingredients</h2>
+                    <div class="ingredients-grid">
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/mustard-green.jpg" alt="Mustard Greens">
+                            <span>Mustard Greens<br>갓</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/onion.png" alt="Onion">
+                            <span>Onion<br>양파</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/apple.png" alt="Apple">
+                            <span>Apple<br>사과</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/garlic.png" alt="Garlic">
+                            <span>Garlic<br>마늘</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/ginger.jpg" alt="Ginger">
+                            <span>Ginger<br>생강</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/red-chili.png" alt="Red Chili">
+                            <span>Red Chili<br>고춧가루</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/sugar.png" alt="Sugar">
+                            <span>Sugar<br>설탕</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <img src="img/ingredients/anchovy.png" alt="Anchovy Sauce">
+                            <span>Anchovy<br>멸치액젓</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2>Serving Suggestions</h2>
+                    <p>Highly recommended alongside deep, rich Korean soups (like Seolleongtang or Galbitang) or fatty roasted meats where its tangy mustard punch shines bright.</p>
+                </div>
+                
+                <div class="info-section">
+                    <h2>Storage Instructions</h2>
+                    <p>Keep refrigerated. This type of kimchi benefits beautifully from patient aging; its bold pungency mellows out into an incredibly satisfying, rich umami over time.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Hoony's Kimchi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+                updateThemeIcon();
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark-mode');
+                } else {
+                    localStorage.removeItem('theme');
+                }
+                updateThemeIcon();
+            });
+            
+            function updateThemeIcon() {
+                 if (body.classList.contains('dark-mode')) {
+                    themeToggle.textContent = '☀️';
+                 } else {
+                    themeToggle.textContent = '🌙';
+                 }
+            }
+        });
+    </script>
+</body>
+</html>
